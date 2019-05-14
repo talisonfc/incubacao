@@ -1,0 +1,22 @@
+page-categoria {
+	ion-card-header{
+		background-color: blue;
+		color: white;
+		font-weght: bold;
+	}
+
+	ion-card-header span{
+		color: white;
+	}
+
+	.card-content-md{
+		padding: 0;
+	}
+
+	.btn-delete{
+		background-color: transparent;
+		color: white;
+		position: absolute;
+		right: 40px;
+	}
+}

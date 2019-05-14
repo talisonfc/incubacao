@@ -1,0 +1,17 @@
+<nav>
+  <ul class="nav">
+    <li class="nav-item"><a (click)="opcao('1')" class="{{op === '1' ? 'nav-link active': 'nav-link'}}" href="#">Entrada</a></li>
+    <li class="nav-item"><a (click)="opcao('2')" class="{{op === '2' ? 'nav-link active': 'nav-link'}}" href="#">Saida</a></li>
+    <li class="nav-item"><a (click)="opcao('3')" class="{{op === '3' ? 'nav-link active': 'nav-link'}}" href="#">Relatorio</a></li>
+  </ul>
+</nav>
+
+<nav *ngIf="titulo !== ''">
+  <button (click)="add=true" class="btn btn-outline-primary">{{titulo === 'Relatório'? 'Novo': 'Nova'}} {{titulo}}</button>
+  <button (click)="add=false" class="btn btn-outline-dark pull-rigth">Fechar</button>
+</nav>
+
+<div *ngIf="add">
+  <app-inserir-informacao *ngIf="titulo!=='Relatório'" [tabela]="tabela"></app-inserir-informacao>
+  <app-relatorio *ngIf="titulo === 'Relatório'"></app-relatorio>
+</div>

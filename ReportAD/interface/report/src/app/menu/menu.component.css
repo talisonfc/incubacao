@@ -1,0 +1,11 @@
+nav, .titulo{
+    padding: 20px 20px 0px 20px;
+}
+
+.active, a:hover{
+    border-bottom: 2px solid rgb(11, 16, 82);
+}
+
+.titulo{
+    font-weight: bold;
+}

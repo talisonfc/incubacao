@@ -1,0 +1,21 @@
+page-home {
+	ion-card-header{
+		text-align: center;
+		background-color: blue;
+	}
+
+	.card-content-md{
+		padding: 0;
+	}
+
+	ion-card-header span{
+		color: #FFF;
+	}
+
+	.text-center{
+		text-align: center;
+		font-size: 20pt;
+		font-weight: bold;
+		color: blue;
+	}
+}

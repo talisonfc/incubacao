@@ -1,0 +1,91 @@
+
+<ion-header>
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="clipboard"></ion-icon>
+    </button>
+    <ion-title>Cardapio</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+
+	  <ion-item>
+	    <ion-label floating>Nome</ion-label>
+	    <ion-input [(ngModel)]="cardapio.nome" type="text"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+
+	<button (click)="criar()" ion-button clear color="dark">Criar</button>
+
+	<ion-card *ngFor="let c of lista; index as i">
+	  <ion-card-header>
+	    <span>{{c.nome}}</span> 
+	    <button (click)="delete(c._id, i)" class="btn-delete" clear><ion-icon name="trash"></ion-icon></button>
+	  </ion-card-header>
+	  <ion-card-content>
+	    
+			<ion-list>
+				<!-- Total de categorias -->
+				<ion-item>
+					Categorias: {{c.categorias.length}}
+					<button (click)="addCategoria()" class="btn-add" clear><ion-icon name="add"></ion-icon></button>
+				</ion-item>
+
+				<!-- Lista de Categorais -->
+				<ion-item *ngIf="c.categorias.length">
+					<ion-card *ngFor="let i of c.categorias">
+						<ion-card-header>
+							<span>{{i.nome}}</span>
+							<button (click)="removeCategoria(c._id,i._id)" class="btn-delete" clear><ion-icon name="trash"></ion-icon></button>
+						</ion-card-header>
+						<ion-card-content>
+							
+							<ion-list>
+								<!-- Total de pratos -->
+								<ion-item>
+									Pratos: {{i.pratos ? i.pratos.length : 0}}
+									<button (click)="addPrato(i._id)" class="btn-add" clear><ion-icon name="add"></ion-icon></button>
+								</ion-item>
+
+								<!-- Lista de pratos -->
+								<ion-item *ngIf="i.pratos">
+									<ion-card *ngFor="let p of i.pratos">
+										<ion-card-header>
+											<span>{{p.nome}}</span>
+											<button class="btn-delete" clear><ion-icon name="trash"></ion-icon></button>
+										</ion-card-header>
+										<ion-card-content>
+											<ion-list *ngIf="p.itens">
+												<ion-item>
+													Itens: {{p.itens.length}}
+													<button (click)="addItem(p._id)" class="btn-add" clear><ion-icon name="add"></ion-icon></button>
+												</ion-item>
+
+												<ion-item>
+													<ion-card *ngFor="let i of p.itens">
+														<ion-card-header>
+															<span>{{i.nome}}</span>
+														</ion-card-header>
+													</ion-card>
+												</ion-item>
+											</ion-list>
+										</ion-card-content>
+									</ion-card>
+								</ion-item>
+							</ion-list>
+
+						</ion-card-content>
+					</ion-card>
+				</ion-item>
+
+			</ion-list>
+
+	  </ion-card-content>
+	</ion-card>
+
+</ion-content>

@@ -1,0 +1,13 @@
+#menu{
+    float: left;
+    width: 20%;
+}
+
+#menu button{
+    width: 100%;
+}
+
+#desktop{
+    float: right;
+    width: 80%;
+}

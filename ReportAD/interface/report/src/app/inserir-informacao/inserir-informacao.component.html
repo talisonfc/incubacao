@@ -1,0 +1,30 @@
+<div class="formulario">
+  
+  <div *ngIf="tabela == 'informacao_saida'">
+    <select class="form-control" #selectElem (change)="setTipo(selectElem.value)" >
+      <option>Tipo de saída</option>
+      <option *ngFor="let tipo of tipos">{{tipo.nome}}</option>
+    </select>
+  </div>
+
+  <div *ngIf="tabela === 'informacao_entrada'">
+    <button (click)="setTipo(1)" class="{{info.tipo=='1'? 'btn btn-primary': 'btn btn-outline-primary'}}">Dízimo</button>
+    <button (click)="setTipo(2)" class="{{info.tipo=='2'? 'btn btn-primary': 'btn btn-outline-primary'}}">Oferta</button>
+    <button (click)="setTipo(3)" class="{{info.tipo=='3'? 'btn btn-primary': 'btn btn-outline-primary'}}">Oferta Missionária</button>
+  </div>
+
+  <div>
+    <textarea [(ngModel)]="info.descricao" class="form-control" cols="30" rows="2" placeholder="Descrição"></textarea>
+    <input [(ngModel)]="info.valor" type="number" class="form-control" placeholder="Valor">
+    <input [(ngModel)]="info.data" type="date" class="form-control" id="ddd">
+  </div>
+
+  <div>
+    <button type="reset" class="btn btn-outline-danger">Limpar</button>
+    <button (click)="salvar()" class="btn btn-outline-primary">Salvar</button>
+  </div>
+</div>
+
+<div class="tabela">
+  <app-tabela-informacao [tabela]="tabela" [informacoes]="informacoes"></app-tabela-informacao>
+</div>

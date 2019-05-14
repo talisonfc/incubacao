@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="switch"></ion-icon>
+    </button>
+    <ion-title>Item</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+
+	  <ion-item>
+	    <ion-label floating>Nome</ion-label>
+	    <ion-input [(ngModel)]="item.nome" type="text"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+
+	<button (click)="criar()" ion-button clear color="dark">Criar</button>
+
+	<ion-card *ngFor="let c of lista; index as i">
+	  <ion-card-header>
+	    <span>{{c.nome}}</span> 
+	    <button (click)="delete(c._id, i)" class="btn-delete" clear><ion-icon name="trash"></ion-icon></button>
+	  </ion-card-header>
+	  <ion-card-content>
+	    
+			<ion-list>
+				<ion-item>Descrição: vazio</ion-item>
+			</ion-list>
+
+	  </ion-card-content>
+	</ion-card>
+</ion-content>

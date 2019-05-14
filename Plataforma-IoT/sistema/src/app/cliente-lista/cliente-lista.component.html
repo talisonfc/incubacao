@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>Tabela de clientes</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>CPF/CNPJ</th>
+                  <th>Operação</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let c of clientes; index as i">
+                    <td>{{c._id}}</td>
+                    <td (click)="select(c._id)">{{c.nome_completo}}</td>
+                    <td>{{c.cpf_cnpj}}</td>
+                    <td>
+                        <button (click)="delete(c._id,i)">Delete</button>
+                        <button (click)="update(c._id,i)">Editar</button>
+                    </td>
+              </tr>
+          </tbody>       
+      </table>
+      
+  </mat-card-content>
+</mat-card>

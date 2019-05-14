@@ -1,0 +1,37 @@
+<!-- ############# MENU-BAR -->
+<div class="barra-de-notificacao text-right">
+  <label>{{usuario.usuario}}</label>
+  <button (click)="sair()" mat-button>Sair</button>
+</div>
+
+<!-- ############# MENU-->
+<div id="menu">
+  <button mat-button (click)="menu('app-cliente')">Cliente</button>
+  <button mat-button (click)="menu('app-sensor')">Sensor</button>
+  <button mat-button (click)="menu('app-produto')">Produto</button>
+  <button mat-button (click)="menu('app-venda')">Venda</button>
+  <button mat-button (click)="menu('app-monitor')">Monitor</button>
+</div>
+
+<!-- ############# AREA DE TRABALHO -->
+<div id="desktop">
+  <div>
+    <app-cliente *ngIf="opcao === 'app-cliente'"></app-cliente>
+  </div>
+
+  <div>
+    <app-produto *ngIf="opcao === 'app-produto'"></app-produto>
+  </div>
+
+  <div>
+    <app-venda *ngIf="opcao === 'app-venda'"></app-venda>
+  </div>
+
+  <div>
+    <app-sensor *ngIf="opcao == 'app-sensor'"></app-sensor>
+  </div>
+
+  <div>
+    <app-monitor *ngIf="opcao == 'app-monitor'"></app-monitor>
+  </div>
+</div>

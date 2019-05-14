@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de sensores</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descricao</th>
+        <th>Valor</th>
+      </tr>
+
+      <tr *ngFor="let s of sensores; index as i">
+        <th>{{s._id}}</th>
+        <th>{{s.nome}}</th>
+        <th>{{s.descricao}}</th>
+        <th>{{s.valor}}</th>
+        <th><button (click)="delete(s._id, i)">Delete</button></th>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

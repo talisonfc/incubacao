@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+  <thead>
+    <th>Descrição</th>
+    <th>Tipo</th>
+    <th>Valor</th>
+    <th>Data</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of informacoes">
+      <td>{{i.descricao}}</td>
+      <td>{{i.tipo}}</td>
+      <!--td>{{i.tipo === 1? 'Dízimo': i.tipo === 2 ? 'Oferta' : 'Oferta Missionária'}}</td-->
+      <td>{{i.valor}}</td>
+      <td>{{i.data}}</td>
+      <td class="text-right">
+        <button (click)="remove(i.id)" class="btn">Remover</button>
+        <button (click)="edit(i.id)" class="btn">Editar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

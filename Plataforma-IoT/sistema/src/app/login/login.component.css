@@ -1,0 +1,15 @@
+.login{
+    width: 30%;
+    padding: 15px;
+    border-radius: 0px;
+    box-shadow: 2px 2px rgba(200,200,200,100);
+    position: relative;
+    left: 35%;
+    top: 15px;
+    background-color: #ecf0f1;
+}
+
+mat-form-field{
+    width: 100%;
+    background-color: #ecf0f1;
+}

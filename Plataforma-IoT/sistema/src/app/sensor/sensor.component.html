@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Criar registro de sensor
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    
+    <mat-form-field>
+      <input type="text" [(ngModel)]="sensor.nome" matInput placeholder="Nome do sensor">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" [(ngModel)]="sensor.descricao" matInput placeholder="Descrição">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="limpar()">Limpar</button>
+    <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
+  </mat-card-content>
+</mat-card>
+
+<div>
+  <app-sensor-lista [sensores]="sensores"></app-sensor-lista>
+</div>

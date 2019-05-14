@@ -1,0 +1,4 @@
+<div class="container-fluid">
+  <app-login *ngIf="!autenticacao" (autenticacao)="autenticar($event)" [usuario]="usuario"></app-login>
+  <app-dasheboard *ngIf="autenticacao" (autenticacao)="autenticar($event)"  [usuario]="usuario"></app-dasheboard>
+</div>

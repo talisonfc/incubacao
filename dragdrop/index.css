@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+}
+
+:hover{
+    border: 1px solid red;
+}
+
+#menucontexto{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    border: 1px solid red;
+    display: none;
+}
+
+#styleEditor{
+    position: absolute;
+    min-width: 200px;
+    height: 300px;
+    border: 1px solid blue;
+    background: white;
+    display: none;
+    scroll-behavior: auto;
+    overflow: scroll;
+}

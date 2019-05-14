@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cadastrar produto</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>  
+    <mat-form-field>
+      <input matInput [(ngModel)]="produto.nome" placeholder="Nome">
+    </mat-form-field>
+ 
+    <mat-form-field>
+      <input matInput [(ngModel)]="produto.descricao" placeholder="Descricao">
+    </mat-form-field>
+
+    <div class="row">
+      <div class="col-md-10">   
+        <mat-form-field>
+          <input matInput [(ngModel)]="produto.valor" type="number" step="0.1" placeholder="Valor">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-2">
+          <mat-checkbox (click)="sensor()">Sensor</mat-checkbox>
+      </div>
+    </div>
+
+    <mat-form-field *ngIf="produto.sensor">
+      <input matInput type="text" [(ngModel)]="produto.id_sensor" placeholder="Id do sensor">
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button (click)="limpar()" >Limpar</button>
+      <button mat-raised-button (click)="cadastrar()" color="primary">Cadastrar</button>
+      <label><b>{{mensagem}}</b></label>
+    </div>
+    
+  </mat-card-content>
+</mat-card>
+
+<app-produto-lista [produtos]="produtos"></app-produto-lista>

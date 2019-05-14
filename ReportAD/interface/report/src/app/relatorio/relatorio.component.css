@@ -1,0 +1,33 @@
+
+.formulario{
+    background-color: #ecf0f1;
+    margin-top: 10px;
+}
+
+.formulario, .tabela{
+    padding: 20px;
+}
+
+.formulario div{
+    margin-bottom: 10px;
+}
+
+input{
+    background-color: transparent;
+}
+
+textarea{
+    background-color: transparent;
+}
+
+select{
+    background-color: transparent;
+}
+
+.titulo-tabela{
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    color: black;
+    padding: 5px 5px 5px 12px;
+    font-weight: bold;
+}

@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Relalizar venda</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <mat-form-field>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="opcao" (keypress)="searchCliente($event)" placeholder="Cliente">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option.nome_completo" (click)="selectClient(option._id)">
+          {{option.nome_completo}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto1" [(ngModel)]="opcaoProduto" (keypress)="searchProduto($event)" placeholder="Produto">
+      <mat-autocomplete #auto1="matAutocomplete">
+        <mat-option *ngFor="let optionP of optionsP" [value]="optionP.nome_completo" (click)="selectProduto(optionP._id, optionP.nome)">
+          {{optionP.nome}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="venda.quantidades[0]" placeholder="Quantidade" type="number" step="1" min="0">
+    </mat-form-field>
+    
+    <button mat-raised-button (click)="cancelar()">Cancelar</button>
+    <button mat-raised-button (click)="finalizar()" color="primary">Finalizar</button>
+  </mat-card-content>
+
+</mat-card>
+  
+
+<div>
+  <app-venda-lista [vendas]="vendas"></app-venda-lista>
+</div>

@@ -1,0 +1,61 @@
+
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="restaurant"></ion-icon>
+    </button>
+    <ion-title>Prato</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+
+	  <ion-item>
+	    <ion-label floating>Nome</ion-label>
+	    <ion-input [(ngModel)]="prato.nome" type="text"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating>Valor</ion-label>
+	    <ion-input [(ngModel)]="prato.valor" type="number"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating>Imagem</ion-label>
+	    <ion-input [(ngModel)]="prato.image" type="text"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+
+	<button (click)="criar()" ion-button clear color="dark">Criar</button>
+
+	<ion-card *ngFor="let c of lista; index as i">
+	  <ion-card-header>
+	    <span>{{c.nome}}</span> 
+	    <button (click)="delete(c._id, i)" class="btn-delete" clear><ion-icon name="trash"></ion-icon></button>
+	  </ion-card-header>
+	  <ion-card-content>
+	    
+			<ion-list>
+				<ion-item>Itens: {{c.itens.length}}</ion-item>
+			</ion-list>
+
+			<ion-list>
+				<ion-item>Nome: {{c.nome}}</ion-item>
+			</ion-list>
+
+			<ion-list>
+				<ion-item>Valor: {{c.valor}}</ion-item>
+			</ion-list>
+
+			<ion-list>
+				<ion-item>URL Imagem: {{c.image}}</ion-item>
+			</ion-list>
+
+	  </ion-card-content>
+	</ion-card>
+</ion-content>

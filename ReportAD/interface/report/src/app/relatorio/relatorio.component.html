@@ -1,0 +1,97 @@
+<div class="formulario">
+  
+  <div>
+      <div style="float: left; width: 50%;">
+          <label>Data inicial</label>
+          <input type="date" [(ngModel)]="relatorio.data_inicio" class="form-control">
+      </div>
+
+      <div style="float: left; width: 50%;">
+          <label>Data final</label>
+          <input type="date" [(ngModel)]="relatorio.data_fim" class="form-control">
+      </div>
+  </div>
+  
+  <div>
+      <textarea [(ngModel)]="relatorio.descricao" cols="30" rows="2" class="form-control" placeholder="Descrição"></textarea>      
+  </div>
+
+  <div>
+      <button type="reset" class="btn btn-outline-danger">Limpar</button>
+      <button (click)="salvar()" class="btn btn-outline-primary">Salvar</button>
+    </div>
+</div>
+
+<div class="row" style="padding: 20px">
+  <div class="card" style="width: 20rem; float: left" *ngFor="let r of relatorios">
+      <div class="card-body">
+        <h4 class="card-title">Relatório</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{r.data_inicio.split('T')[0]}} - {{r.data_fim.split('T')[0]}}</h6>
+        <p class="card-text">{{r.descricao}}</p>
+
+        <a href="#" (click)="remover(r.id)" class="card-link">Excluir</a>
+        <a href="#" (click)="editar(r.id)" class="card-link">Editar</a>
+        <a href="#" (click)="ver(r.id)" class="card-link">Ver</a>
+      </div>
+    </div>
+</div>
+
+
+<div *ngIf="selectedRelatorio">
+  <div style="padding: 20px;">
+    <button (click)="resumo()" class="btn btn-outline-primary">Relatório resumido</button>
+    <button (click)="detalhe()" class="btn btn-outline-primary">Relatório detalhado</button>
+  </div>
+  
+  <!--RELATORIO RESUMIDO-->
+  <div *ngIf="tipoRelatorio == 1">
+    <div class="tabela" *ngIf="estatisticas_entrada.length>0">
+      <div class="titulo-tabela">Entrada</div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Tipo de entrada</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let est of estatisticas_entrada; index as i">
+            <td>{{tipos[i].nome}}</td>
+            <td>{{est}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tabela" *ngIf="estatisticas_saida.length>0">
+        <div class="titulo-tabela">Saída</div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Tipo de entrada</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let est of estatisticas_saida; index as i">
+              <td>{{tipos[i+3].nome}}</td>
+              <td>{{est}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+  <!--RELATORIO DETALHADO-->
+  <div *ngIf="tipoRelatorio == 2">
+    <div class="tabela" *ngIf="informacoes_entrada.length>0">
+      <div class="titulo-tabela">Entrada</div>
+      <app-tabela-relatorio [informacoes]="informacoes_entrada"></app-tabela-relatorio>
+    </div>
+
+    <div class="tabela" *ngIf="informacoes_saida.length>0">
+      <div class="titulo-tabela">Saída</div>
+      <app-tabela-relatorio [informacoes]="informacoes_saida"></app-tabela-relatorio>
+    </div>
+  </div>
+</div>

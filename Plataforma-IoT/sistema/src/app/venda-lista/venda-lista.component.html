@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Tabela de vendas</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <table class="table table-bordered">
+      <tr>
+        <th>Cliente</th>
+        <th>Produto</th>
+        <th>Quantidade</th>
+      </tr>
+
+      <tr *ngFor="let v of vendas; index as i">
+        <td>{{v.id_cliente}}</td>
+        <td>{{v.produtos}}</td>
+        <td>{{v.quantidades}}</td>
+        <td><button (click)="delete(v._id,i)">Delete</button></td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

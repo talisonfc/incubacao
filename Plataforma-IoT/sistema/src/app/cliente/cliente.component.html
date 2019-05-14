@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cadastrar cliente</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>  
+    <mat-form-field>
+      <input matInput [(ngModel)]="cliente.nome" placeholder="Nome">
+    </mat-form-field>
+    
+    <mat-radio-group>
+      <mat-radio-button (click)="tipo_pessoa(1)">Pessoa Física</mat-radio-button>
+      <mat-radio-button (click)="tipo_pessoa(2)" value="2">Pessoa Jurídica</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field>
+      <input matInput [textMask]="cliente.tipo_pessoa === 1 ? {mask: mask_cpf}: {mask: mask_cnpj}" [(ngModel)]="cliente.cpf_cnpj" placeholder="{{cpf_cnpj}}" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="cliente.email" type="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  [textMask]="{mask: mask_celular}" [(ngModel)]="cliente.celular" placeholder="Celular">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="limpar()" >Limpar</button>
+    <button mat-raised-button (click)="cadastrar()" color="primary">Cadastrar</button>
+    <label>{{mensagem}}</label>
+  </mat-card-content>
+</mat-card>
+
+<div>
+  <app-cliente-lista [clientes]="clientes"></app-cliente-lista>
+</div>

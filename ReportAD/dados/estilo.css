@@ -1,0 +1,17 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+body{
+    padding: 15px;
+}
+
+h1{
+    border-bottom: 3px solid black;
+}
+
+.sintaxe{
+    padding: 15px;
+    text-align: center;
+}

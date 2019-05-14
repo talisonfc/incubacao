@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="home"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+		
+		<!-- Instruções -->
+		<ion-row>
+			<ion-col col-12>
+				<ion-card>
+					<ion-card-header><span>Overview</span></ion-card-header>
+					<ion-card-content>
+						<p style="padding: 10px;">Sistema de criação e gerenciamento de catálogo. Primeiro comece criando um catálogo atribuindo um nome. Depois adicione categorias ao seu catálogo. Crie elementos para seu catálogo e por fim adicione itens a cada novo elemento criado.</p>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+
+		<!-- Cartalogo em números -->
+		<ion-row>
+
+			<ion-col col-3>
+				<ion-card>
+					<ion-card-header><span>Catálogos</span></ion-card-header>
+					<ion-card-content>
+						<ion-list>
+							<ion-item class="text-center">{{cardapio.length}}</ion-item>
+						</ion-list>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+			
+			<ion-col col-3>
+				<ion-card>
+					<ion-card-header><span>Categorias</span></ion-card-header>
+					<ion-card-content>
+						<ion-list>
+							<ion-item class="text-center">{{categoria.length}}</ion-item>
+						</ion-list>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+
+			<ion-col col-3>
+				<ion-card>
+					<ion-card-header><span>Pratos</span></ion-card-header>
+					<ion-card-content>
+						<ion-list>
+							<ion-item class="text-center">{{prato.length}}</ion-item>
+						</ion-list>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+
+			<ion-col col-3>
+				<ion-card>
+					<ion-card-header><span>Itens</span></ion-card-header>
+					<ion-card-content>
+						<ion-list>
+							<ion-item class="text-center">{{item.length}}</ion-item>
+						</ion-list>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+
+		</ion-row>
+  
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Monitor</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>  
+
+      <div class="row">
+        <div class="col-md-3" *ngFor="let s of sensores">
+            <mat-card>
+              <mat-card-header class="text-center titulo">{{s.nome}}</mat-card-header>
+              <mat-card-content class="text-center valor">{{s.valor}}</mat-card-content>
+            </mat-card>    
+        </div>
+      </div>
+          
+    </mat-card-content>
+  </mat-card>
+  
